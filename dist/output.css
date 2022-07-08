@@ -830,12 +830,34 @@ p{
   width: 30%;
 }
 
+.w-fit{
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .max-w-\[200px\]{
   max-width: 200px;
 }
 
 .max-w-7xl{
   max-width: 80rem;
+}
+
+.max-w-6xl{
+  max-width: 72rem;
+}
+
+.max-w-\[300px\]{
+  max-width: 300px;
+}
+
+.max-w-\[500px\]{
+  max-width: 500px;
+}
+
+.max-w-\[600px\]{
+  max-width: 600px;
 }
 
 .shrink-0{
@@ -860,6 +882,10 @@ p{
 
 .flex-col{
   flex-direction: column;
+}
+
+.place-items-center{
+  place-items: center;
 }
 
 .items-center{
