@@ -9,6 +9,10 @@
   body {
     @apply w-[100vw] overflow-x-hidden;
   }
+
+  p {
+    @apply text-dark text-base block;
+  }
 }
 @layer components {
   .btn {
@@ -35,10 +39,10 @@
   }
 
   .title {
-    @apply font-bold text-5xl text-primary font-messiri;
+    @apply font-bold text-5xl text-primary font-messiri leading-snug block;
   }
 
   .subtitle {
-    @apply text-base text-secondary uppercase;
+    @apply text-base text-secondary uppercase block;
   }
 }
