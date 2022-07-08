@@ -8,7 +8,7 @@
     <title>Login</title>
   </head>
   <body class="">
-    <div class="h-screen bg-pinkish-200 flex flex-col relative">
+    <section class="h-screen bg-pinkish-200 flex flex-col relative">
       <img
         src="/img/hero.png"
         alt=""
@@ -17,7 +17,7 @@
       <header class="padding z-10 relative">
         <div class="container flex items-center py-1">
           <a href="/" class="mr-8 shrink-0">
-            <img src="/img/logo.png" alt="Logo" class="w-36 h-36 shrink-0" />
+            <img src="/img/logo.png" alt="Logo" class="w-32 h-32 shrink-0" />
           </a>
           <ul class="flex uppercase text-base text-primary gap-6">
             <li class="navlink active">Home</li>
@@ -206,7 +206,7 @@
           </ul>
           <div class="flex gap-3 mt-10">
             <button
-              class="btn bg-pinkish-300 text-white group border border-transparent hover:bg-transparent hover:border-pinkish-300 hover:text-pinkish-300 transition"
+              class="btn bg-pinkish-300 text-white group border border-transparent hover:bg-pinkish-300/70 hover:border-pinkish-300 transition"
             >
               <svg
                 width="17"
@@ -214,7 +214,7 @@
                 viewBox="0 0 17 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                class="stroke-white group-hover:stroke-pinkish-300 transition"
+                class="stroke-white transition"
               >
                 <path
                   d="M13.5182 2.66666H4.1849C3.44852 2.66666 2.85156 3.26362 2.85156 4V13.3333C2.85156 14.0697 3.44852 14.6667 4.1849 14.6667H13.5182C14.2546 14.6667 14.8516 14.0697 14.8516 13.3333V4C14.8516 3.26362 14.2546 2.66666 13.5182 2.66666Z"
@@ -251,6 +251,63 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="padding padding-section">
+      <div class="container flex flex-col items-center">
+        <img src="/img/logo.png" alt="Logo" class="w-16 h-16" />
+        <span class="subtitle my-4">range of services</span>
+        <h2 class="title">It is time to relax</h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full mt-10 mb-8 gap-8"
+        >
+          <div class="flex flex-col items-center gap-1">
+            <img src="/img/range-service-1.png" alt="" />
+            <span class="text-xl uppercase font-bold text-primary font-messiri"
+              >The thermal bath</span
+            >
+            <p class="text-dark text-base text-center block max-w-[200px]">
+              Lorem ipsum dolor sit amet, his dicant tritani in. Doctus cetero
+              euripidis in duo.
+            </p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <img src="/img/range-service-2.png" alt="" />
+            <span class="text-xl uppercase font-bold text-primary font-messiri"
+              >Relaxing massage</span
+            >
+            <p class="text-dark text-base text-center block max-w-[200px]">
+              Lorem ipsum dolor sit amet, his dicant tritani in. Doctus cetero
+              euripidis in duo.
+            </p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <img src="/img/range-service-3.png" alt="" />
+            <span class="text-xl uppercase font-bold text-primary font-messiri"
+              >Body treatments</span
+            >
+            <p class="text-dark text-base text-center block max-w-[200px]">
+              Lorem ipsum dolor sit amet, his dicant tritani in. Doctus cetero
+              euripidis in duo.
+            </p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <img src="/img/range-service-4.png" alt="" />
+            <span class="text-xl uppercase font-bold text-primary font-messiri"
+              >Supreme skincare</span
+            >
+            <p class="text-dark text-base text-center block max-w-[200px]">
+              Lorem ipsum dolor sit amet, his dicant tritani in. Doctus cetero
+              euripidis in duo.
+            </p>
+          </div>
+        </div>
+        <button
+          class="btn border border-pinkish-300 text-secondary transition hover:border-transparent hover:bg-secondary/10 px-14"
+        >
+          see all services
+        </button>
+      </div>
+    </section>
   </body>
 </html>
