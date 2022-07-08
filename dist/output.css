@@ -742,6 +742,10 @@ p{
   margin-bottom: 0.5rem;
 }
 
+.mt-8{
+  margin-top: 2rem;
+}
+
 .block{
   display: block;
 }
@@ -752,6 +756,10 @@ p{
 
 .grid{
   display: grid;
+}
+
+.aspect-video{
+  aspect-ratio: 16 / 9;
 }
 
 .h-screen{
