@@ -5,9 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply w-[100vw] overflow-x-hidden;
+  }
+}
 @layer components {
+  .btn {
+    @apply px-6 py-3 cursor-pointer  font-medium text-sm tracking-wider flex items-center rounded-full gap-2 uppercase min-w-[177px] justify-center;
+  }
   .navlink {
-    @apply cursor-pointer hover:text-pinkish-300 transition-all;
+    @apply cursor-pointer hover:text-pinkish-300 transition-all whitespace-nowrap;
   }
 
   .active {
@@ -15,7 +23,7 @@
   }
 
   .container {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-[100rem] mx-auto;
   }
 
   .padding {
