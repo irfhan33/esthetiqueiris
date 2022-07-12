@@ -27,7 +27,7 @@
   }
 
   .container {
-    @apply max-w-[100rem] mx-auto;
+    @apply max-w-7xl mx-auto;
   }
 
   .padding {

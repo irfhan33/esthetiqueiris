@@ -649,7 +649,7 @@ p{
 .container{
   margin-left: auto;
   margin-right: auto;
-  max-width: 100rem;
+  max-width: 80rem;
 }
 
 .padding{
@@ -808,12 +808,12 @@ p{
   max-width: 200px;
 }
 
-.max-w-6xl{
-  max-width: 72rem;
-}
-
 .max-w-\[600px\]{
   max-width: 600px;
+}
+
+.max-w-\[100rem\]{
+  max-width: 100rem;
 }
 
 .shrink-0{
@@ -874,6 +874,18 @@ p{
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+.space-y-8 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden{
