@@ -39,7 +39,7 @@
   }
 
   .title {
-    @apply font-bold text-5xl text-primary font-messiri leading-snug block;
+    @apply font-bold text-4xl sm:text-5xl text-primary font-messiri leading-snug block;
   }
 
   .subtitle {
