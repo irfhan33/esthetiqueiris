@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
     <link href="/dist/output.css" rel="stylesheet" />
+
     <title>esthetiqueiris</title>
   </head>
   <body class="">
-    <section class="h-screen bg-pinkish-200 flex flex-col relative">
+    <section
+      class="h-screen bg-pinkish-200 flex flex-col relative w-[100vw] overflow-x-hidden"
+    >
       <img
         src="/img/hero.png"
         alt=""
@@ -329,7 +336,7 @@
           </div>
         </div>
         <button
-          class="btn border border-pinkish-300 text-secondary transition hover:border-transparent hover:bg-secondary/10 px-14"
+          class="btn border border-pinkish-300 text-secondary transition hover:border-transparent hover:bg-secondary/10 px-14 whitespace-nowrap"
         >
           see all services
         </button>
@@ -385,13 +392,13 @@
           >
             our about
           </button>
-          <img src="/img/about-2.png" alt="" />
+          <img src="/img/about-2.png" alt="" class="block pt-4" />
         </div>
       </div>
     </section>
 
     <section
-      class="padding padding-section bg-primary flex flex-col items-center"
+      class="padding padding-section bg-primary flex flex-col items-center overflow-hidden"
     >
       <div class="space-y-4 flex flex-col items-center">
         <img src="/img/logo-bw.png" alt="Logo" class="w-18 h-18 block" />
@@ -399,26 +406,63 @@
         <h2 class="title text-white">Discover our Services</h2>
       </div>
       <div class="flex gap-4 mt-8">
-        <div>
-          <img
-            src="/img/carousel-1.png"
-            alt=""
-            class="aspect-video object-cover"
-          />
-        </div>
-        <div>
-          <img
-            src="/img/carousel-2.png"
-            alt=""
-            class="aspect-video object-cover"
-          />
-        </div>
-        <div>
-          <img
-            src="/img/carousel-3.png"
-            alt=""
-            class="aspect-video object-cover"
-          />
+        <div class="swiper overflow-visible relative select-none">
+          <div class="swiper-wrapper overflow-visible">
+            <img
+              src="/img/carousel-1.png"
+              alt=""
+              class="aspect-video object-cover swiper-slide"
+            />
+            <img
+              src="/img/carousel-2.png"
+              alt=""
+              class="aspect-video object-cover swiper-slide"
+            />
+            <img
+              src="/img/carousel-3.png"
+              alt=""
+              class="aspect-video object-cover swiper-slide"
+            />
+            <img
+              src="/img/carousel-3.png"
+              alt=""
+              class="aspect-video object-cover swiper-slide"
+            />
+            <img
+              src="/img/carousel-3.png"
+              alt=""
+              class="aspect-video object-cover swiper-slide"
+            />
+          </div>
+
+          <div
+            class="prev absolute top-1/2 -translate-y-1/2 z-50 bg-pinkish-300 rounded-full w-10 h-10 grid place-items-center cursor-pointer hover:bg-pinkish-200 transition -translate-x-3 md:-translate-x-5 group"
+          >
+            <svg
+              width="16"
+              height="8"
+              viewBox="0 0 16 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="group-hover:fill-pinkish-300 fill-white"
+            >
+              <path d="M3.99 3H16V5H3.99V8L0 4L3.99 0V3Z" fill="" />
+            </svg>
+          </div>
+          <div
+            class="next absolute top-1/2 -translate-y-1/2 z-50 bg-pinkish-300 rounded-full w-10 h-10 grid place-items-center cursor-pointer hover:bg-pinkish-200 transition translate-x-3 md:translate-x-5 group right-0"
+          >
+            <svg
+              width="16"
+              height="8"
+              viewBox="0 0 16 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="group-hover:fill-pinkish-300 fill-white rotate-180"
+            >
+              <path d="M3.99 3H16V5H3.99V8L0 4L3.99 0V3Z" fill="" />
+            </svg>
+          </div>
         </div>
       </div>
       <p class="text-white text-base text-center mt-8">
@@ -591,7 +635,7 @@
             </div>
           </div>
           <div class="">
-            <img src="/img/announcements-2.png" alt="" />
+            <img src="/img/announcements-2.png" alt="" class="w-full" />
             <div
               class="flex flex-col items-center p-8 gap-2 bg-white -translate-y-10 mx-5"
             >
@@ -667,7 +711,7 @@
             </div>
           </div>
           <div class="">
-            <img src="/img/announcements-3.png" alt="" />
+            <img src="/img/announcements-3.png" alt="" class="w-full" />
             <div
               class="flex flex-col items-center p-8 gap-2 bg-white -translate-y-10 mx-5"
             >
@@ -896,15 +940,15 @@
                 class="rounded-full border border-dark p-2 cursor-pointer group hover:border-transparent hover:bg-dark transition h-10 w-10 grid place-items-center"
               >
                 <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
+                  width="21"
+                  height="18"
+                  viewBox="0 0 21 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   class="fill-dark group-hover:fill-pinkish-200 transition"
                 >
                   <path
-                    d="M20.383 2.68034C19.6196 3.01803 18.81 3.23981 17.981 3.33834C18.8548 2.81577 19.5087 1.99335 19.821 1.02434C19.001 1.51234 18.102 1.85434 17.165 2.03934C16.5356 1.36592 15.7014 0.919304 14.792 0.768925C13.8826 0.618547 12.9489 0.772832 12.1363 1.20779C11.3236 1.64276 10.6774 2.33402 10.2981 3.17413C9.91884 4.01424 9.82775 4.95612 10.039 5.85334C8.37611 5.76999 6.74933 5.33786 5.26429 4.585C3.77924 3.83215 2.46913 2.77539 1.419 1.48334C1.04729 2.12179 0.851955 2.84757 0.853 3.58634C0.853 5.03634 1.591 6.31734 2.713 7.06734C2.04901 7.04644 1.39963 6.86712 0.819 6.54434V6.59634C0.8192 7.56204 1.15337 8.49796 1.76485 9.2454C2.37633 9.99284 3.22748 10.5058 4.174 10.6973C3.55761 10.8644 2.91131 10.889 2.284 10.7693C2.55087 11.6006 3.07101 12.3275 3.77159 12.8485C4.47218 13.3694 5.31813 13.6581 6.191 13.6743C5.32348 14.3557 4.33018 14.8593 3.26788 15.1565C2.20558 15.4537 1.09513 15.5386 0 15.4063C1.9117 16.6358 4.1371 17.2885 6.41 17.2863C14.103 17.2863 18.31 10.9133 18.31 5.38634C18.31 5.20634 18.305 5.02434 18.297 4.84634C19.1159 4.25451 19.8226 3.52136 20.384 2.68134L20.383 2.68034Z"
+                    d="M20.383 2.68034C19.6196 3.01803 18.81 3.23981 17.981 3.33834C18.8548 2.81577 19.5087 1.99335 19.821 1.02434C19.001 1.51234 18.102 1.85434 17.165 2.03934C16.5356 1.36592 15.7014 0.919304 14.792 0.768925C13.8825 0.618547 12.9489 0.772832 12.1363 1.20779C11.3236 1.64276 10.6774 2.33402 10.2981 3.17413C9.91884 4.01424 9.82775 4.95612 10.039 5.85334C8.37611 5.76999 6.74933 5.33786 5.26429 4.585C3.77924 3.83215 2.46913 2.77539 1.419 1.48334C1.04729 2.12179 0.851955 2.84757 0.853 3.58634C0.853 5.03634 1.591 6.31734 2.713 7.06734C2.04901 7.04644 1.39963 6.86712 0.819 6.54434V6.59634C0.8192 7.56204 1.15337 8.49796 1.76485 9.2454C2.37633 9.99284 3.22748 10.5058 4.174 10.6973C3.55761 10.8644 2.91131 10.889 2.284 10.7693C2.55087 11.6006 3.07101 12.3275 3.77159 12.8485C4.47218 13.3694 5.31813 13.6581 6.191 13.6743C5.32348 14.3557 4.33018 14.8593 3.26788 15.1565C2.20558 15.4537 1.09513 15.5386 0 15.4063C1.9117 16.6358 4.1371 17.2885 6.41 17.2863C14.103 17.2863 18.31 10.9133 18.31 5.38634C18.31 5.20634 18.305 5.02434 18.297 4.84634C19.1159 4.25451 19.8226 3.52136 20.384 2.68134L20.383 2.68034Z"
                     fill=""
                   />
                 </svg>
@@ -933,5 +977,48 @@
         </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script type="module">
+      import Swiper from "https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js";
+
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+
+        allowTouchMove: true,
+
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            centeredSlides: false,
+            centeredSlidesBounds: false,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            centeredSlides: true,
+            centeredSlidesBounds: true,
+          },
+        },
+        lazy: {
+          loadPrevNext: true,
+        },
+        // Navigation arrows
+        navigation: {
+          nextEl: ".next",
+          prevEl: ".prev",
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: ".swiper-scrollbar",
+        },
+      });
+    </script>
   </body>
 </html>
