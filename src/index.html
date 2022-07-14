@@ -9,10 +9,15 @@
       href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
     />
     <link href="/dist/output.css" rel="stylesheet" />
-
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>esthetiqueiris</title>
   </head>
-  <body class="">
+  <body
+    class="relative"
+    x-data="{
+    openSidebar: false,
+}"
+  >
     <section
       class="h-screen bg-pinkish-200 flex flex-col relative w-[100vw] overflow-x-hidden"
     >
@@ -22,7 +27,7 @@
         class="absolute hidden xl:block h-full object-cover -right-[6vw] 2xl:right-0"
       />
 
-      <header class="padding z-10 relative w-[100vw] overflow-x-hidden">
+      <header class="padding z-10 relative w-[100vw] overflow-x-hidden header">
         <div class="container flex items-center py-2 max-w-[100rem]">
           <a href="/" class="mr-8 shrink-0">
             <img
@@ -130,6 +135,7 @@
               viewBox="0 0 24 24"
               stroke="currentColor"
               stroke-width="2"
+              @click="openSidebar = true"
             >
               <path
                 stroke-linecap="round"
@@ -144,17 +150,19 @@
       <div class="padding grow flex items-center z-10 relative">
         <div class="container max-w-[100rem]">
           <h1
-            class="hidden sm:block text-[44px] sm:text-6xl lg:text-7xl font-messiri text-primary font-bold leading-snug"
+            class="hidden sm:block text-[40px] sm:text-6xl lg:text-7xl font-messiri text-primary font-bold leading-snug hero-title"
           >
             YOUR BODY IS THE <br />
             MOST PRECIOUS <br />DRESS YOU HAVE
           </h1>
           <h1
-            class="block sm:hidden text-[44px] sm:text-6xl lg:text-7xl font-messiri text-primary font-bold leading-snug"
+            class="block sm:hidden text-[40px] sm:text-6xl lg:text-7xl font-messiri text-primary font-bold leading-snug hero-title"
           >
             YOUR BODY IS THE MOST PRECIOUS DRESS YOU HAVE
           </h1>
-          <ul class="text-secondary text-base space-y-2 mt-10">
+          <ul
+            class="text-secondary text-base space-y-2 mt-4 sm:mt-10 hero-list"
+          >
             <li class="flex items-center gap-3">
               <svg
                 width="32"
@@ -237,7 +245,7 @@
               Hot Stone Massage
             </li>
           </ul>
-          <div class="flex gap-3 mt-10">
+          <div class="flex gap-3 mt-10 hero-buttons">
             <button
               class="btn bg-pinkish-300 text-white group border border-transparent hover:bg-pinkish-300/70 hover:border-pinkish-300 transition"
             >
@@ -286,15 +294,143 @@
       </div>
     </section>
 
+    <!-- Header Offset -->
+    <div
+      class="bg-pinkish-200 fixed left-0 top-0 z-30 w-full min-h-screen h-full padding py-2 overflow-auto xl:hidden"
+      x-show="openSidebar === true"
+    >
+      <div class="flex items-center justify-between">
+        <a href="/" class="mr-8 shrink-0">
+          <img
+            src="/img/logo.png"
+            alt="Logo"
+            class="w-20 h-20 sm:w-32 sm:h-32 shrink-0"
+          />
+        </a>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-10 w-10 stroke-primary cursor-pointer block"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          @click="openSidebar = false"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </div>
+
+      <!-- Menu Offeset -->
+      <div class="flex flex-col gap-6 mt-10">
+        <div class="navlink">Home</div>
+        <div class="navlink">The center</div>
+        <div class="navlink">contact us</div>
+        <div class="navlink">promotions</div>
+        <div class="navlink">events</div>
+      </div>
+
+      <ul class="flex items-center gap-4 mt-10 justify-center">
+        <li class="cursor-pointer">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-primary"
+          >
+            <path
+              d="M11.1016 9.91667H8.85156V13.25H11.1016V23.25H14.8516V13.25H17.5516L17.8516 9.91667H14.8516V8.5C14.8516 7.75 15.0016 7.41667 15.6766 7.41667H17.8516V3.25H15.0016C12.3016 3.25 11.1016 4.58333 11.1016 7.08333V9.91667Z"
+              fill=""
+            />
+          </svg>
+        </li>
+        <li class="cursor-pointer">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-primary"
+          >
+            <path
+              d="M9.08486 21.25C17.7645 21.25 22.5111 14.7102 22.5111 9.03951C22.5111 8.85371 22.5069 8.66885 22.4975 8.48471C23.4188 7.87901 24.2198 7.12294 24.8516 6.26268C24.0061 6.60431 23.0963 6.83437 22.1417 6.93809C23.1159 6.40685 23.864 5.56609 24.2169 4.56404C23.305 5.05579 22.2953 5.41312 21.2207 5.60582C20.3592 4.77173 19.1329 4.25 17.776 4.25C15.1698 4.25 13.0564 6.17204 13.0564 8.5411C13.0564 8.87797 13.0979 9.20533 13.1785 9.5196C9.25698 9.34046 5.77937 7.63254 3.45225 5.03604C3.04652 5.67006 2.81292 6.40709 2.81292 7.19289C2.81292 8.6817 3.64609 9.99613 4.91298 10.7653C4.13893 10.7436 3.4117 10.55 2.77577 10.2283C2.77472 10.2462 2.77472 10.2642 2.77472 10.283C2.77472 12.3616 4.40157 14.0969 6.56049 14.4902C6.16418 14.5884 5.7472 14.6412 5.31662 14.6412C5.01265 14.6412 4.71705 14.6136 4.42956 14.5639C5.03017 16.2687 6.77238 17.5097 8.83791 17.5446C7.22258 18.6958 5.18791 19.3817 2.9772 19.3817C2.59658 19.3817 2.22093 19.362 1.85156 19.3223C3.93986 20.5394 6.41949 21.25 9.08486 21.25Z"
+              fill=""
+            />
+          </svg>
+        </li>
+        <li class="cursor-pointer">
+          <svg
+            width="20"
+            height="21"
+            viewBox="0 0 20 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 fill-primary"
+          >
+            <path
+              d="M1.34818 6.26C2.18019 4.60324 3.45655 3.21051 5.03461 2.23747C6.61267 1.26443 8.43024 0.749416 10.2842 0.75C12.9792 0.75 15.2432 1.74 16.9742 3.355L14.1072 6.223C13.0702 5.232 11.7522 4.727 10.2842 4.727C7.67918 4.727 5.47418 6.487 4.68918 8.85C4.48918 9.45 4.37518 10.09 4.37518 10.75C4.37518 11.41 4.48918 12.05 4.68918 12.65C5.47518 15.014 7.67918 16.773 10.2842 16.773C11.6292 16.773 12.7742 16.418 13.6702 15.818C14.1896 15.476 14.6343 15.0322 14.9774 14.5135C15.3205 13.9948 15.5548 13.4119 15.6662 12.8H10.2842V8.932H19.7022C19.8202 9.586 19.8842 10.268 19.8842 10.977C19.8842 14.023 18.7942 16.587 16.9022 18.327C15.2482 19.855 12.9842 20.75 10.2842 20.75C8.97081 20.7505 7.67022 20.4922 6.45672 19.9899C5.24323 19.4875 4.14063 18.7509 3.21194 17.8222C2.28325 16.8936 1.54668 15.791 1.04431 14.5775C0.541954 13.364 0.283655 12.0634 0.28418 10.75C0.28418 9.136 0.67018 7.61 1.34818 6.26Z"
+              fill=""
+            />
+          </svg>
+        </li>
+      </ul>
+
+      <div
+        class="px-6 py-4 cursor-pointer font-medium text-sm tracking-wider flex items-center rounded-full gap-2 uppercase max-w-[177px] w-full justify-center group transition text-white border border-white bg-primary xl:hover:bg-white hover:border-primary hover:text-primary hover:bg-transparent flex mx-auto mt-6 sm:hidden"
+      >
+        <svg
+          width="17"
+          height="16"
+          viewBox="0 0 17 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="stroke-white group-hover:stroke-primary transition-all"
+        >
+          <path
+            d="M13.5182 2.66666H4.1849C3.44852 2.66666 2.85156 3.26362 2.85156 4V13.3333C2.85156 14.0697 3.44852 14.6667 4.1849 14.6667H13.5182C14.2546 14.6667 14.8516 14.0697 14.8516 13.3333V4C14.8516 3.26362 14.2546 2.66666 13.5182 2.66666Z"
+            stroke=""
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M11.5186 1.33334V4"
+            stroke=""
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M6.18457 1.33334V4"
+            stroke=""
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M2.85156 6.66666H14.8516"
+            stroke=""
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        RESERVATION
+      </div>
+    </div>
+
     <section class="padding padding-section">
       <div class="container flex flex-col items-center">
-        <img src="/img/logo.png" alt="Logo" class="w-16 h-16" />
+        <img src="/img/logo.png" alt="Logo" class="w-16 h-16 logo" />
         <span class="subtitle my-4">range of services</span>
         <h2 class="title">It is time to relax</h2>
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full mt-10 mb-8 gap-8"
         >
-          <div class="flex flex-col items-center gap-1">
+          <div class="flex flex-col items-center gap-1 services">
             <img src="/img/range-service-1.png" alt="" />
             <span class="text-xl uppercase font-bold text-primary font-messiri"
               >The thermal bath</span
@@ -304,7 +440,7 @@
               euripidis in duo.
             </p>
           </div>
-          <div class="flex flex-col items-center gap-1">
+          <div class="flex flex-col items-center gap-1 services">
             <img src="/img/range-service-2.png" alt="" />
             <span class="text-xl uppercase font-bold text-primary font-messiri"
               >Relaxing massage</span
@@ -314,7 +450,7 @@
               euripidis in duo.
             </p>
           </div>
-          <div class="flex flex-col items-center gap-1">
+          <div class="flex flex-col items-center gap-1 services">
             <img src="/img/range-service-3.png" alt="" />
             <span class="text-xl uppercase font-bold text-primary font-messiri"
               >Body treatments</span
@@ -324,7 +460,7 @@
               euripidis in duo.
             </p>
           </div>
-          <div class="flex flex-col items-center gap-1">
+          <div class="flex flex-col items-center gap-1 services">
             <img src="/img/range-service-4.png" alt="" />
             <span class="text-xl uppercase font-bold text-primary font-messiri"
               >Supreme skincare</span
@@ -336,14 +472,14 @@
           </div>
         </div>
         <button
-          class="btn border border-pinkish-300 text-secondary transition hover:border-transparent hover:bg-secondary/10 px-14 whitespace-nowrap"
+          class="btn btn-service border border-pinkish-300 text-secondary transition hover:border-transparent hover:bg-secondary/10 px-14 whitespace-nowrap"
         >
           see all services
         </button>
       </div>
     </section>
 
-    <section class="padding padding-section relative overflow-hidden">
+    <section class="padding padding-section relative overflow-hidden about">
       <img
         src="/img/bg-about-2.png"
         alt=""
@@ -401,7 +537,11 @@
       class="padding padding-section bg-primary flex flex-col items-center overflow-hidden"
     >
       <div class="space-y-4 flex flex-col items-center">
-        <img src="/img/logo-bw.png" alt="Logo" class="w-18 h-18 block" />
+        <img
+          src="/img/logo-bw.png"
+          alt="Logo"
+          class="w-18 h-18 block object-cover logo"
+        />
         <span class="subtitle">discover our services</span>
         <h2 class="title text-white">Discover our Services</h2>
       </div>
@@ -409,34 +549,34 @@
         <div class="swiper overflow-visible relative select-none">
           <div class="swiper-wrapper overflow-visible">
             <img
-              src="/img/carousel-1.png"
-              alt=""
-              class="aspect-video object-cover swiper-slide"
-            />
-            <img
               src="/img/carousel-2.png"
               alt=""
-              class="aspect-video object-cover swiper-slide"
+              class="object-cover swiper-slide"
             />
             <img
               src="/img/carousel-3.png"
               alt=""
-              class="aspect-video object-cover swiper-slide"
+              class="object-cover swiper-slide"
             />
             <img
-              src="/img/carousel-3.png"
+              src="/img/carousel-4.png"
               alt=""
-              class="aspect-video object-cover swiper-slide"
+              class="object-cover swiper-slide"
             />
             <img
-              src="/img/carousel-3.png"
+              src="/img/carousel-5.png"
               alt=""
-              class="aspect-video object-cover swiper-slide"
+              class="object-cover swiper-slide"
+            />
+            <img
+              src="/img/carousel-1.png"
+              alt=""
+              class="object-cover swiper-slide"
             />
           </div>
 
           <div
-            class="prev absolute top-1/2 -translate-y-1/2 z-50 bg-pinkish-300 rounded-full w-10 h-10 grid place-items-center cursor-pointer hover:bg-pinkish-200 transition -translate-x-3 md:-translate-x-5 group"
+            class="prev absolute top-1/2 -translate-y-1/2 z-50 bg-pinkish-300 rounded-full w-10 h-10 grid place-items-center cursor-pointer hover:bg-pinkish-200 transition -translate-x-[0.8vw] md:-translate-x-5 group"
           >
             <svg
               width="16"
@@ -450,7 +590,7 @@
             </svg>
           </div>
           <div
-            class="next absolute top-1/2 -translate-y-1/2 z-50 bg-pinkish-300 rounded-full w-10 h-10 grid place-items-center cursor-pointer hover:bg-pinkish-200 transition translate-x-3 md:translate-x-5 group right-0"
+            class="next absolute top-1/2 -translate-y-1/2 z-50 bg-pinkish-300 rounded-full w-10 h-10 grid place-items-center cursor-pointer hover:bg-pinkish-200 transition translate-x-[0.8vw] md:translate-x-5 group right-0"
           >
             <svg
               width="16"
@@ -475,10 +615,10 @@
         class="container grid grid-cols-1 md:grid-cols-2 place-items-center gap-8"
       >
         <div>
-          <img src="/img/chooseus.png" alt="" />
+          <img src="/img/chooseus.png" alt="" class="chooseus" />
         </div>
         <div class="gap-6 flex flex-col">
-          <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block" />
+          <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block logo" />
           <span class="subtitle">look here</span>
           <h2 class="title">WHY CHOOSE US</h2>
           <p class="max-w-[600px]">
@@ -502,7 +642,7 @@
         class="container grid grid-cols-1 md:grid-cols-2 place-items-center gap-8"
       >
         <div class="gap-6 flex flex-col">
-          <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block" />
+          <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block logo" />
           <span class="subtitle">look here</span>
           <h2 class="title">OUR PROMOTIONS</h2>
           <p class="max-w-[600px]">
@@ -518,7 +658,7 @@
           </button>
         </div>
         <div>
-          <img src="/img/our-promotions.png" alt="" />
+          <img src="/img/our-promotions.png" alt="" class="promotions" />
         </div>
       </div>
     </section>
@@ -528,10 +668,10 @@
         class="container grid grid-cols-1 md:grid-cols-2 place-items-center gap-8"
       >
         <div>
-          <img src="/img/our-products.png" alt="" />
+          <img src="/img/our-products.png" alt="" class="products" />
         </div>
         <div class="gap-6 flex flex-col">
-          <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block" />
+          <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block logo" />
           <span class="subtitle">look here</span>
           <h2 class="title">OUR PRODUCST</h2>
           <p class="max-w-[600px]">
@@ -553,12 +693,12 @@
       <div
         class="container max-w-[100rem] flex flex-col gap-6 items-center w-full"
       >
-        <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block" />
+        <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block logo" />
         <span class="subtitle">Unmissable offers for our customers</span>
         <h2 class="title">OUR ANNOUNCEMENTS</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-          <div class="">
+          <div class="announcements">
             <img src="/img/announcements-1.png" alt="" class="w-full" />
             <div
               class="flex flex-col items-center p-8 gap-2 bg-white -translate-y-10 mx-5"
@@ -634,7 +774,7 @@
               </p>
             </div>
           </div>
-          <div class="">
+          <div class="announcements">
             <img src="/img/announcements-2.png" alt="" class="w-full" />
             <div
               class="flex flex-col items-center p-8 gap-2 bg-white -translate-y-10 mx-5"
@@ -710,7 +850,7 @@
               </p>
             </div>
           </div>
-          <div class="">
+          <div class="announcements">
             <img src="/img/announcements-3.png" alt="" class="w-full" />
             <div
               class="flex flex-col items-center p-8 gap-2 bg-white -translate-y-10 mx-5"
@@ -791,7 +931,7 @@
     </section>
 
     <section class="padding padding-section bg-pinkish-200">
-      <div class="container flex flex-col items-center gap-3">
+      <div class="container flex flex-col items-center gap-3 contact">
         <span class="text-3xl text-primary font-messiri font-bold"
           >Want to get updates on Salon & Wellness news?</span
         >
@@ -813,32 +953,32 @@
     </section>
 
     <section class="padding-section flex flex-col gap-6 items-center">
-      <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block" />
+      <img src="/img/logo.png" alt="Logo" class="w-16 h-16 block logo" />
       <span class="subtitle">Look here</span>
       <h2 class="title">Our Partners</h2>
       <div class="flex w-full justify-between items-center">
-        <div class="w-[200px] h-[95px] flex items-center justify-center">
+        <div class="partners">
           <img src="/img/partner-1.png" alt="" />
         </div>
-        <div class="w-[200px] h-[95px] flex items-center justify-center">
+        <div class="partners">
           <img src="/img/partner-2.png" alt="" />
         </div>
-        <div class="w-[200px] h-[95px] flex items-center justify-center">
+        <div class="partners">
           <img src="/img/partner-3.png" alt="" />
         </div>
-        <div class="w-[200px] h-[95px] flex items-center justify-center">
+        <div class="partners">
           <img src="/img/partner-4.png" alt="" />
         </div>
-        <div class="w-[200px] h-[95px] flex items-center justify-center">
+        <div class="partners">
           <img src="/img/partner-5.png" alt="" />
         </div>
-        <div class="w-[200px] h-[95px] flex items-center justify-center">
+        <div class="partners">
           <img src="/img/partner-6.png" alt="" />
         </div>
-        <div class="w-[200px] h-[95px] flex items-center justify-center">
+        <div class="partners">
           <img src="/img/partner-7.png" alt="" />
         </div>
-        <div class="w-[200px] h-[95px] flex items-center justify-center">
+        <div class="partners">
           <img src="/img/partner-8.png" alt="" />
         </div>
       </div>
@@ -847,9 +987,9 @@
     <footer class="padding padding-section bg-pinkish-200 pb-8">
       <div class="container flex flex-col gap-20">
         <div class="flex items-center gap-4 md:gap-40 flex-col md:flex-row">
-          <img src="/img/logo.png" alt="" class="w-24 h-24" />
+          <img src="/img/logo.png" alt="" class="w-24 h-24 logo" />
           <h5
-            class="text-primary text-4xl font-messiri font-bold text-center md:text-start"
+            class="text-primary text-2xl sm:text-3xl md:text-4xl font-messiri font-bold text-center md:text-start footer-title"
           >
             Saturday is a day for the Salon. <br />
             Relex, indulge, enjoy, and love yourself. too.
@@ -983,12 +1123,10 @@
       import Swiper from "https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js";
 
       const swiper = new Swiper(".swiper", {
-        // Optional parameters
         direction: "horizontal",
         loop: true,
         slidesPerView: 1,
         spaceBetween: 10,
-
         allowTouchMove: true,
 
         breakpoints: {
@@ -1008,17 +1146,72 @@
         lazy: {
           loadPrevNext: true,
         },
-        // Navigation arrows
         navigation: {
           nextEl: ".next",
           prevEl: ".prev",
         },
 
-        // And if we need scrollbar
         scrollbar: {
           el: ".swiper-scrollbar",
         },
       });
+
+      ScrollReveal({
+        reset: false,
+        distance: "60px",
+        duration: 1000,
+        delay: 400,
+      });
+
+      ScrollReveal().reveal(".header", { delay: 10, origin: "top" });
+      ScrollReveal().reveal(".hero-title", { delay: 800, origin: "top" });
+      ScrollReveal().reveal(".hero-list li", {
+        delay: 800,
+        origin: "left",
+        interval: 200,
+      });
+      ScrollReveal().reveal(".hero-buttons", { delay: 1000, origin: "right" });
+      ScrollReveal().reveal(".logo", { delay: 100, origin: "top" });
+      ScrollReveal().reveal(".subtitle", { delay: 300, origin: "left" });
+      ScrollReveal().reveal(".title, .footer-title", {
+        delay: 600,
+        origin: "left",
+      });
+      ScrollReveal().reveal(".btn", { delay: 600, origin: "left" });
+      ScrollReveal().reveal(".swiper", { delay: 600, origin: "right" });
+      ScrollReveal().reveal("p, span", { delay: 600, origin: "bottom" });
+      ScrollReveal().reveal(".chooseus, .promotions , .products, .contact", {
+        delay: 600,
+        origin: "left",
+      });
+
+      ScrollReveal().reveal(".services", {
+        delay: 100,
+        origin: "top",
+        interval: 200,
+      });
+
+      ScrollReveal().reveal(".about img", {
+        delay: 100,
+        origin: "top",
+        interval: 200,
+      });
+
+      ScrollReveal().reveal(".announcements, .partners", {
+        delay: 100,
+        origin: "top",
+        interval: 200,
+      });
+
+      // ScrollReveal().reveal(".navlink", {
+      //   delay: 400,
+      //   origin: "left",
+      //   interval: 200,
+      // });
     </script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
   </body>
 </html>
